@@ -14,7 +14,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 latext=r'''
 $$
-\begin{array}{rl} x-1  ~~~~~~~\quad\quad\quad \\   x^2 +2x -1 ~\enclose{longdiv}{~ x^3+\phantom{5} x^2 -5x +4} &  \\      \underline{~~  x^3+2x^2 - \phantom{5} x  ~ \phantom{000} }& \\   -x^2 - 4x +4   \\      \underline{~~~~~~~ -x^2-2x+1  }& \\   -2x+3&  \\ \end{array}
+\require{enclose}\begin{array}{rl} x-1  ~~~~~~~\quad\quad\quad \\   x^2 +2x -1 ~\enclose{longdiv}{~ x^3+\phantom{5} x^2 -5x +4} &  \\      \underline{~~  x^3+2x^2 - \phantom{5} x  ~ \phantom{000} }& \\   -x^2 - 4x +4   \\      \underline{~~~~~~~ -x^2-2x+1  }& \\   -2x+3&  \\ \end{array}
 $$
 '''
 # latext = r'''
