@@ -20,15 +20,6 @@ y &= -2x^2-4x+k \\[3pt]
 \end{align*}
 $$
 '''
-# latext = r'''
-# ## Latex example
-# ### full equation 
-# $$ 
-# \Delta G = \Delta\sigma \frac{a}{b} 
-# $$ 
-# ### inline
-# Assume $\frac{a}{b}=1$ and $\sigma=0$...  
-# '''
 st.write(latext)
 
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
