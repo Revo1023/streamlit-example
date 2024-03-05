@@ -12,15 +12,18 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-latext = r'''
-## Latex example
-### full equation 
-$$ 
-\Delta G = \Delta\sigma \frac{a}{b} 
-$$ 
-### inline
-Assume $\frac{a}{b}=1$ and $\sigma=0$...  
+latext=r'''
+\begin{array}{rl} x-1  ~~~~~~~\quad\quad\quad \\   x^2 +2x -1 ~\enclose{longdiv}{~ x^3+\phantom{5} x^2 -5x +4} &  \\      \underline{~~  x^3+2x^2 - \phantom{5} x  ~ \phantom{000} }& \\   -x^2 - 4x +4   \\      \underline{~~~~~~~ -x^2-2x+1  }& \\   -2x+3&  \\ \end{array}
 '''
+# latext = r'''
+# ## Latex example
+# ### full equation 
+# $$ 
+# \Delta G = \Delta\sigma \frac{a}{b} 
+# $$ 
+# ### inline
+# Assume $\frac{a}{b}=1$ and $\sigma=0$...  
+# '''
 st.write(latext)
 
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
