@@ -15,21 +15,8 @@ In the meantime, below is an example of what you can do with just a few lines of
 latext=r'''
 $$
 \begin{align*}
-\begin{array}{c}a~ \\[3pt]
-~ 
-\end{array}
-&\begin{array}{|rrrr} ~~2 & -3 & 3 & 1~~ \\[3pt]
-& 1 & c & ~1~~ \\[3pt]
-\hline 
-\end{array}
-\\[3pt]
-& 
-\begin{array}{rrr}
-~~2 & ~~~ b & 2 
-\end{array}
-~~ \begin{array}{|r } d \\[3pt]
-\hline 
-\end{array}
+y &= -2x^2-4x+k \\[3pt]
+  &= -2(x+1)^2+2+k
 \end{align*}
 $$
 '''
