@@ -13,12 +13,7 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 latext=r'''
-$$
-\begin{align*}
-y &= -2x^2-4x+k \\[3pt]
-  &= -2(x+1)^2+2+k
-\end{align*}
-$$
+\[1234\]
 '''
 st.write(latext)
 
