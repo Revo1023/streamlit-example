@@ -56,7 +56,19 @@ def postprocess(text: str) -> str:
     text = re.sub(r"\n+", r"\n", text, flags=re.DOTALL)
     text = text.strip()
     return text
-    
+
+def postprocessCBResponse(text: str) -> str:
+    # 모든 $$~$$를 $$\n~\n$$으로 변환
+    text = re.sub(r"\$\$(.*?)\$\$", r"$$\n\1\n$$", text)
+
+    # begin 앞에 $$\n 그리고 end 뒤에 \n$$
+    text = re.sub(r"(\\begin{.*?})", r"$$\n\1", text)
+    text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
+
+    # 연속적으로 \n이 있는 경우, 한개로 통합하는 과정
+    text = re.sub(r"\n+", r"\n\n", text, flags=re.DOTALL)
+    text = text.strip()
+    return text
 latext=r'''
 [1단계]: 이차함수 변형하기
 우리가 주어진 이차함수는 $y=-2x^2-4x+k$입니다. 이 이차함수를 변형하면 $y=-2(x+1)^2+2+k가 됩니다. 이 변형은 이차함수의 표준형태를 얻기 위해 이루어집니다.
@@ -65,7 +77,7 @@ latext=r'''
 이제 $-3\le x \le 0$에서 이차함수 $y=-2(x+1)^2+2+k$의 최솟값이 $-5$라는 것을 알고 있습니다. 이 최솟값은 $x=-3$일 때 발생합니다. 따라서 이를 이용하여 $k$값을 구할 수 있습니다. $-5=-8+2+k$ 식을 통해 $k=1$을 얻을 수 있습니다.
 '''
 #st.write(postprocess(latext))
-st.write(latext)
+st.write(postprocessCBResponse(latext))
 
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
 num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
