@@ -56,6 +56,7 @@ def postprocess(text: str) -> str:
     text = re.sub(r"\n+", r"\n", text, flags=re.DOTALL)
     text = text.strip()
     return text
+    
 latext=r'''
 [1단계]: 이차함수 변형하기
 우리가 주어진 이차함수는 $y=-2x^2-4x+k$입니다. 이 이차함수를 변형하면 $y=-2(x+1)^2+2+k가 됩니다. 이 변형은 이차함수의 표준형태를 얻기 위해 이루어집니다.
