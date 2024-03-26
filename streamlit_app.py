@@ -62,8 +62,8 @@ def postprocessCBResponse(text: str) -> str:
     text = re.sub(r"\$\$(.*?)\$\$", r"$$\n\1\n$$", text)
 
     # begin 앞에 $$\n 그리고 end 뒤에 \n$$
-    text = re.sub(r"(\\begin{.*?})", r"$$\n\1", text)
-    text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
+    #text = re.sub(r"(\\begin{.*?})", r"$$\n\1", text)
+    #text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
 
     # 연속적으로 \n이 있는 경우, 한개로 통합하는 과정
     text = re.sub(r"\n+", r"\n\n", text, flags=re.DOTALL)
