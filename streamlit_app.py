@@ -71,7 +71,10 @@ def postprocessCBResponse(text: str) -> str:
     return text
 latext=r'''
 $$
-\begin{align*}(x+1):(-3-2y)=1: 3 & \quad \cdots \\,㉠\\\\3x+y=9 & \quad \cdots \\,㉡\end{align*}
+\left\{\begin{array}{ll}
+(x+1):(-3-2y)=1: 3 & \quad \cdots \,㉠\\
+3x+y=9 & \quad \cdots \,㉡
+\end{array}\right.
 $$
 [1단계]: 이차함수 변형하기
 우리가 주어진 이차함수는 $y=-2x^2-4x+k$입니다. 이 이차함수를 변형하면 $y=-2(x+1)^2+2+k가 됩니다. 이 변형은 이차함수의 표준형태를 얻기 위해 이루어집니다.
