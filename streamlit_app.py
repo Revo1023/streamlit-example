@@ -49,11 +49,18 @@ def postprocess(text: str) -> str:
     text = re.sub(r"\$\$(.*?)\$\$", r"$$\n\1\n$$", text)
 
     # begin 앞에 $$\n 그리고 end 뒤에 \n$$
-    #text = re.sub(r"(\\begin{.*?})", r"$$\n\1", text)
-    #text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
+    # 단, {array}는 제외
+    text = re.sub(r"\\begin(?!{array})", r"$$\n\\begin", text)
+    text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
+    text = re.sub(r"(\\end{array})\n\$\$", r"\1", text)
+    
+    # $\left\{\begin{array}{ll} >> $$\n\left\{\begin{array}{ll}
+    # \end{array}\right.$ >> \end{array}\right.\n$$
+    text = re.sub(r"\$(\\left\\{\\begin{array})", r"$$\n\1", text, flags=re.DOTALL)
+    text = re.sub(r"(\\end{array}\\right.)\$", r"\1\n$$", text, flags=re.DOTALL)
 
     # 연속적으로 \n이 있는 경우, 한개로 통합하는 과정
-    text = re.sub(r"\n+", r"\n", text, flags=re.DOTALL)
+    text = re.sub(r"\n+", r"\n\n", text, flags=re.DOTALL)
     text = text.strip()
     return text
 
@@ -70,12 +77,10 @@ def postprocessCBResponse(text: str) -> str:
     text = text.strip()
     return text
 latext=r'''
-$$
-\left\{\begin{array}{ll}
-(x+1):(-3-2y)=1: 3 & \quad \cdots \,㉠\\
-3x+y=9 & \quad \cdots \,㉡
-\end{array}\right.
-$$
+연립이차부등식 $ \left\{ \begin{array}{l}
+x^{2} - 3x + a > 0 \\
+x^{2} + bx - 8 \le 0
+\end{array} \right.$의 해가 $-2 \le x < 1$ 또는 $2 < x \le 4$라고 할 때, 실수 $a$, $b$의 합 $a+b$의 값은?
 [1단계]: 이차함수 변형하기
 우리가 주어진 이차함수는 $y=-2x^2-4x+k$입니다. 이 이차함수를 변형하면 $y=-2(x+1)^2+2+k가 됩니다. 이 변형은 이차함수의 표준형태를 얻기 위해 이루어집니다.
 
