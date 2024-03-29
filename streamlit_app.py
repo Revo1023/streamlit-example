@@ -88,8 +88,8 @@ x^{2} + bx - 8 \le 0
 [2단계]: 최솟값을 이용하여 $k$값 구하기
 이제 $-3\le x \le 0$에서 이차함수 $y=-2(x+1)^2+2+k$의 최솟값이 $-5$라는 것을 알고 있습니다. 이 최솟값은 $x=-3$일 때 발생합니다. 따라서 이를 이용하여 $k$값을 구할 수 있습니다. $-5=-8+2+k$ 식을 통해 $k=1$을 얻을 수 있습니다.
 '''
-#st.write(postprocess(latext))
-st.write(postprocessCBResponse(latext))
+st.write(postprocess(latext))
+#st.write(postprocessCBResponse(latext))
 
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
 num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
