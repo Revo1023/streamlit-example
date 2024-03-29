@@ -50,7 +50,7 @@ def postprocess(text: str) -> str:
 
     # begin 앞에 $$\n 그리고 end 뒤에 \n$$
     # 단, {array}는 제외
-    text = re.sub(r"\\begin(?!{array})", r"$$\n\\begin", text)
+    text = re.sub(r"\\begin(?!{array})", r"$$\n\begin", text)
     text = re.sub(r"(\\end{.*?})", r"\1\n$$", text)
     text = re.sub(r"(\\end{array})\n\$\$", r"\1", text)
     
