@@ -56,8 +56,8 @@ def postprocess(text: str) -> str:
     
     # $\left\{\begin{array}{ll} >> $$\n\left\{\begin{array}{ll}
     # \end{array}\right.$ >> \end{array}\right.\n$$
-    text = re.sub(r"\$(\\left\\{\\begin{array})", r"$$\n\1", text, flags=re.DOTALL)
-    text = re.sub(r"(\\end{array}\\right.)\$", r"\1\n$$", text, flags=re.DOTALL)
+    text = re.sub(r"\$(\\left\\{\\begin{array})", r"\n$$\n\1", text, flags=re.DOTALL)
+    text = re.sub(r"(\\end{array}\\right.)\$", r"\1\n$$\n", text, flags=re.DOTALL)
 
     # 연속적으로 \n이 있는 경우, 한개로 통합하는 과정
     text = re.sub(r"\n+", r"\n\n", text, flags=re.DOTALL)
