@@ -46,7 +46,7 @@ def preprocess(text) -> str:
 
 def postprocess(text: str) -> str:
     # \앞의 공백 제거
-    text = re.sub(r" \\", r"\", text)
+    text = re.sub(r" \\", r"\\", text)
                   
     # 모든 $$~$$를 $$\n~\n$$으로 변환
     text = re.sub(r"\$\$(.*?)\$\$", r"$$\n\1\n$$", text)
